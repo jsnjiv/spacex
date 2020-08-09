@@ -1,0 +1,17 @@
+.toolbar{
+    display: flex;
+    border-bottom: 1px solid;
+}
+.item {
+    flex: 1;
+}
+
+.logout {
+    margin-top: -5px;
+    padding-left: 50px;
+    cursor: pointer;
+}
+
+.logout:hover{
+    color: sandybrown;
+}
