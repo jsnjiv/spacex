@@ -20,41 +20,37 @@
             <span style="border-bottom: 1px solid;">Successful Launch</span>
         </div>
         <div style="margin-left: 45px;">
-            <span class="launchyear" (click)="selectFilter(item)" [ngStyle]="{'background-color': '' == true ? '#98FB98' : '#8FBC8F' }">
-                <span style="float: left;">True</span>
-            </span>
-            <span class="launchyear" (click)="selectFilter(item)" [ngStyle]="{'background-color': '' == true ? '#98FB98' : '#8FBC8F' }">
-                <span style="float: left;">False</span>
+            <span *ngFor="let item of launchFilter" class="launchyear" (click)="selectLaunchFilter(item)" [ngStyle]="{'background-color': item.isSelected == true ? '#98FB98' : '#8FBC8F' }">
+                <span style="float: left;">{{item.val}}</span>
             </span>
         </div>
+
         <div style="text-align: center;display: inline-flex;
         margin: 10px 45px;">
             <span style="border-bottom: 1px solid;">Successful Landing</span>
         </div>
         <div style="margin-left: 45px;">
-            <span class="launchyear" (click)="selectFilter(item)" [ngStyle]="{'background-color': '' == true ? '#98FB98' : '#8FBC8F' }">
-                <span style="float: left;">True</span>
-            </span>
-            <span class="launchyear" (click)="selectFilter(item)" [ngStyle]="{'background-color': '' == true ? '#98FB98' : '#8FBC8F' }">
-                <span style="float: left;">False</span>
+            <span *ngFor="let item of landingFilter" class="launchyear" (click)="selectLandingFilter(item)" [ngStyle]="{'background-color': item.isSelected == true ? '#98FB98' : '#8FBC8F' }">
+                <span style="float: left;">{{item.val}}</span>
             </span>
         </div>
 
 
     </div>
+    <h4 *ngIf="loading" style="text-align: center;
+        width: 100%;
+        margin-top: 10%;">Loading ...</h4>
     <div class="product">
-        <div *ngFor="let item of productList">
+        <div *ngFor="let item of satelliteList">
             <div class="productitem">
-                <img [src]="item.image" class="productimage">
-                <span *ngIf="item.discount != 0" class="discount">{{item.discount + '%'}}</span>
-                <span>{{item.price.final_price |currency:'INR':'symbol'}}</span>
+                <img [src]="item.links.mission_patch" class="productimage">
+                <span>{{item.mission_name + " #" + item.flight_number}}</span>
             </div>
             <div class="inneritem">
-                <span>Product - {{item.title}}</span>
-                <span>Brand - {{item.brand}}</span>
-                <span>Color - {{item.colour.title}}</span>
-                <button class="btn btn-primary" (click)="addItem(item)" *ngIf="!item.isAdded">Add</button>
-                <button class="btn btn-primary" (click)="removeItem(item)" *ngIf="item.isAdded">Remove</button>
+                <span>Mission Ids - {{item.mission_id.join(',')}}</span>
+                <span>Launch Year - {{item.launch_year}}</span>
+                <span>Success Launch - {{item.launch_success}}</span>
+                <span>Success Landing - {{item.launch_landing}}</span>
             </div>
         </div>
     </div>

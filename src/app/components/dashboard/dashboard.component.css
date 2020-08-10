@@ -4,7 +4,8 @@
 
 .filter {
     /* display: flex; */
-    max-width: 225px;
+    min-width: 230px;
+    max-width: 230px;
     /* text-align: center; */
     background: whitesmoke;
     height: 600px;
