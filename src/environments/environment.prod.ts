@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  host:"https://api.spaceXdata.com"
+  host:"http://localhost:3000"
 };
