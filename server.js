@@ -21,7 +21,7 @@ app.use(methodOverride());
 
 
 router.get('/', function(req, res) {
-    res.sendFile('index.html', { root: __dirname + '/dist' });
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
 
