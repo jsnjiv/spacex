@@ -15,10 +15,7 @@ export class DataserviceService {
   constructor(private http: HttpClient) { }
 
   getSatellites(filter) {
-    return this.http.get(this.productBaseUrl + `/satellites?filter=${JSON.stringify(filter)}`);
+    return this.http.get(`/satellites?filter=${JSON.stringify(filter)}`);
   }
 
-  searchProducts(key){
-    return this.http.get(this.productBaseUrl + `/products?title=${key}`);
-  }
 }
