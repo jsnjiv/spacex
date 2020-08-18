@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 const router = express.Router();
 
 app.use(cors());
-app.use(express.static('/'));
+app.use(express.static('dist/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
