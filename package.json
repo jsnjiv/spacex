@@ -3,14 +3,17 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng build && ncp server.js dist/server.js && node dist/server.js",
+        "start": "node server.js",
         "build": "ng build",
+        "deploy": "git push origin master && git push heroku master",
+        "postinstall": "ng build --aot -prod",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
     },
     "private": true,
     "dependencies": {
+        "@angular/cli": "~10.0.5",
         "@angular/animations": "~10.0.6",
         "@angular/common": "~10.0.6",
         "@angular/compiler": "~10.0.6",
@@ -51,5 +54,9 @@
         "ts-node": "~8.3.0",
         "tslint": "~6.1.0",
         "typescript": "~3.9.5"
+    },
+    "engines": {
+        "node": "12.18.3",
+        "npm": "6.14.6"
     }
 }
